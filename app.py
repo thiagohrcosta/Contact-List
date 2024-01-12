@@ -13,6 +13,20 @@ def index():
     print(f"{index}. {name} - {helpers.phone_number_formatter(phone)}, {email} - Favorite [{favorite}]")
   return
 
+def list_favorites():
+  favorite_contacts = []
+
+  for contact in contacts:
+     if contact["favorite"] == True:
+        favorite_contacts.append(contact)
+  
+  print("Favorite contacts")
+
+  for index, favorite_contact in enumerate(favorite_contacts, start=1):
+     helpers.formatted_contact(index, favorite_contact)
+
+  return
+
 def create():
   name = input("Type the contact name: ")
   phone = input("Type contact phone: ")
@@ -36,7 +50,7 @@ def update():
    contact = contacts[formatted_index]
 
    print("Contact to be edited")
-   helpers.formatted_contact(contact)
+   helpers.formatted_contact(formatted_index, contact)
    update_choice = update_user_choice()
 
    while update_choice > 0 and update_choice < 5:
@@ -67,24 +81,24 @@ while True:
   print("2. List all contacts")
   print("3. List favorites")
   print("4. Edit contact")
-  print("5. Mark contact as favorite")
-  print("6. Remove contact from favorite list")
-  print("7. Remove contact")
-  print("8. Exit")
+  print("5. Remove contact")
+  print("6. Exit")
 
   try:
-    choice = int(input("What would you like to do? Type a number between 1 and 8: "))
-    while choice < 1 or choice > 8:
+    choice = int(input("What would you like to do? Type a number between 1 and 6: "))
+    while choice < 1 or choice > 6:
         helpers.number_not_allowed(choice)
-        choice = int(input("What would you like to do? Type a number between 1 and 8: "))
+        choice = int(input("What would you like to do? Type a number between 1 and 6: "))
 
     if choice == 1:
        create()
     if choice == 2:
        index()
+    if choice == 3:
+       list_favorites()
     if choice == 4:
        update()
-    elif choice == 8:
+    elif choice >= 6:
         break
   except ValueError:
       print("Oops! Invalid input. Please enter a number.")
