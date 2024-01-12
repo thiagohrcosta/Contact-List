@@ -9,3 +9,15 @@ def phone_number_formatter(phone_number):
 
   formatted_number = f"({digits_only[:2]}) {digits_only[2]} {digits_only[3:7]}-{digits_only[7:]}"
   return formatted_number
+
+def formatted_index(index):
+   index = int(index) - 1
+   return index
+
+def formatted_contact(contact):
+  favorite = "✓" if contact["favorite"] else " "
+  print(f"{contact['name']} - {phone_number_formatter(contact['phone'])}, {contact['email']} - Favorite [{favorite}]")
+
+  print(contact)
+
+  
