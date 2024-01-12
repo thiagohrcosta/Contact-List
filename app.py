@@ -28,6 +28,39 @@ def create():
   contacts.append(contact)
   return
 
+def update():
+   index()
+   index_to_update = input("Type the contact index to update: ")
+   formatted_index = helpers.formatted_index(index_to_update)
+
+   contact = contacts[formatted_index]
+
+   print("Contact to be edited")
+   helpers.formatted_contact(contact)
+   update_choice = update_user_choice()
+
+   while update_choice > 0 and update_choice < 5:
+      if update_choice == 1:
+        contacts[formatted_index]["name"] = input("Type the new name: ")
+        update_choice = update_user_choice()
+      elif update_choice == 2:
+        contacts[formatted_index]["phone"] = input("Type the new phone: ")
+        update_choice = update_user_choice()
+      elif update_choice == 3: 
+        contacts[formatted_index]["email"] = input("Type the new email: ")
+        update_choice = update_user_choice()
+      elif update_choice == 4:
+        is_favorite = input("Type 'Y' to mark as favorite or 'N' to remove from favorite: ")        
+        contacts[formatted_index]["favorite"] = True if is_favorite.upper() == "Y" else False
+        update_choice = update_user_choice()
+      else:
+        break
+   return
+
+def update_user_choice():
+    update_choice = int(input("What would you like to edit (1 - Name  | 2 - Phone | 3 - Email | 4 - Favorite()? | 5 - Done : "))
+    return update_choice
+   
 while True:
   print("==== Contact List ====")
   print("1. Add contact")
@@ -49,6 +82,8 @@ while True:
        create()
     if choice == 2:
        index()
+    if choice == 4:
+       update()
     elif choice == 8:
         break
   except ValueError:
