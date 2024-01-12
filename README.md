@@ -1,4 +1,4 @@
-![enter image description here](https://res.cloudinary.com/dloadb2bx/image/upload/v1704943653/python_rvcah5.png)
+![banner](https://res.cloudinary.com/dloadb2bx/image/upload/v1704943653/python_rvcah5.png)
 # Contact List App
 This project belongs to the first challenge of the **[Rocketseat](https://www.rocketseat.com.br/)** specialization in Python and consists in a simple command-line contact management application that allows users to manage their contacts efficiently. The application offers various functionalities to add, view, edit, and delete contacts, as well as mark/unmark them as favorites.
 
@@ -6,8 +6,6 @@ To create a high level of challenges, I also added helper functions to ensure a 
 
 ## Technologies
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-
-## Helpers
 
 ## Helper Functions: Enhancing Code Readability and Reusability
 
