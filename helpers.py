@@ -14,10 +14,8 @@ def formatted_index(index):
    index = int(index) - 1
    return index
 
-def formatted_contact(contact):
+def formatted_contact(index, contact):
   favorite = "✓" if contact["favorite"] else " "
-  print(f"{contact['name']} - {phone_number_formatter(contact['phone'])}, {contact['email']} - Favorite [{favorite}]")
-
-  print(contact)
+  print(f"{index}. {contact['name']} - {phone_number_formatter(contact['phone'])}, {contact['email']} - Favorite [{favorite}]")
 
   
