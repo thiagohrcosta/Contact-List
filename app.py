@@ -74,6 +74,17 @@ def update():
 def update_user_choice():
     update_choice = int(input("What would you like to edit (1 - Name  | 2 - Phone | 3 - Email | 4 - Favorite()? | 5 - Done : "))
     return update_choice
+
+def destroy():
+   index()
+   index_to_remove = input("Type the contact index to remove: ")
+   formatted_index = helpers.formatted_index(index_to_remove)
+
+   if 0 <= formatted_index < len(contacts):
+       removed_contact = contacts.pop(formatted_index)
+       print(f"Contact {removed_contact['name']} has been removed.")
+   else:
+       print("Invalid index. Please choose a valid index.")
    
 while True:
   print("==== Contact List ====")
@@ -92,13 +103,15 @@ while True:
 
     if choice == 1:
        create()
-    if choice == 2:
+    elif choice == 2:
        index()
-    if choice == 3:
+    elif choice == 3:
        list_favorites()
-    if choice == 4:
+    elif choice == 4:
        update()
-    elif choice >= 6:
+    elif choice == 5:
+       destroy()
+    else:
         break
   except ValueError:
       print("Oops! Invalid input. Please enter a number.")
